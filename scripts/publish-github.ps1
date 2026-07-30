@@ -8,6 +8,19 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+if (-not $env:HTTPS_PROXY -and -not $env:HTTP_PROXY) {
+    $internetSettings = Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -ErrorAction SilentlyContinue
+    if ($internetSettings.ProxyEnable -eq 1 -and $internetSettings.ProxyServer) {
+        $proxyServer = [string]$internetSettings.ProxyServer
+        if ($proxyServer -notmatch "://") {
+            $proxyServer = "http://$proxyServer"
+        }
+        $env:HTTPS_PROXY = $proxyServer
+        $env:HTTP_PROXY = $proxyServer
+    }
+}
+
 $GhExe = "gh"
 $portableGh = "E:\pragmata\tools\gh\bin\gh.exe"
 if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
