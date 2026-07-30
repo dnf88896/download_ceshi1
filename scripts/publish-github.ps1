@@ -8,7 +8,12 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
+$GhExe = "gh"
+$portableGh = "E:\pragmata\tools\gh\bin\gh.exe"
+if (Test-Path -LiteralPath $portableGh) {
+    $GhExe = $portableGh
+}
+elseif (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
     throw "GitHub CLI 'gh' is not installed or is not on PATH. Install it first, then rerun this script."
 }
 
@@ -26,17 +31,17 @@ try {
     }
 
     if (-not (git remote get-url origin 2>$null)) {
-        gh repo create "$Owner/$Repo" --public --source "$RepoDir" --remote origin --push
+        & $GhExe repo create "$Owner/$Repo" --public --source "$RepoDir" --remote origin --push
     }
     else {
         git push -u origin main
     }
 
     try {
-        gh api -X POST "repos/$Owner/$Repo/pages" -F "source[branch]=main" -F "source[path]=/" | Out-Null
+        & $GhExe api -X POST "repos/$Owner/$Repo/pages" -F "source[branch]=main" -F "source[path]=/" | Out-Null
     }
     catch {
-        gh api -X PUT "repos/$Owner/$Repo/pages" -F "source[branch]=main" -F "source[path]=/" | Out-Null
+        & $GhExe api -X PUT "repos/$Owner/$Repo/pages" -F "source[branch]=main" -F "source[path]=/" | Out-Null
     }
 
     $assets = @()
@@ -50,11 +55,11 @@ try {
         throw "No release assets found in $PartsDir. Run scripts\split-iso.ps1 first."
     }
 
-    if (gh release view $Tag --repo "$Owner/$Repo" 1>$null 2>$null) {
-        gh release upload $Tag --repo "$Owner/$Repo" @assets --clobber
+    if (& $GhExe release view $Tag --repo "$Owner/$Repo" 1>$null 2>$null) {
+        & $GhExe release upload $Tag --repo "$Owner/$Repo" @assets --clobber
     }
     else {
-        gh release create $Tag @assets --repo "$Owner/$Repo" --title "voices38-pragmata.iso" --notes-file RELEASE_NOTES.md
+        & $GhExe release create $Tag @assets --repo "$Owner/$Repo" --title "voices38-pragmata.iso" --notes-file RELEASE_NOTES.md
     }
 
     Write-Host "Page:    https://$Owner.github.io/$Repo/"
@@ -63,4 +68,3 @@ try {
 finally {
     Pop-Location
 }
-
