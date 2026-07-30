@@ -10,11 +10,13 @@ $ErrorActionPreference = "Stop"
 
 $GhExe = "gh"
 $portableGh = "E:\pragmata\tools\gh\bin\gh.exe"
-if (Test-Path -LiteralPath $portableGh) {
-    $GhExe = $portableGh
-}
-elseif (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
-    throw "GitHub CLI 'gh' is not installed or is not on PATH. Install it first, then rerun this script."
+if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
+    if (Test-Path -LiteralPath $portableGh) {
+        $GhExe = $portableGh
+    }
+    else {
+        throw "GitHub CLI 'gh' is not installed or is not on PATH. Install it first, then rerun this script."
+    }
 }
 
 Push-Location $RepoDir
