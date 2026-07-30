@@ -3,21 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>测试1.txt 下载</title>
+  <title>文件下载</title>
   <style>
     body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f6f7f9; color: #181a1f; }
-    main { max-width: 720px; margin: 0 auto; padding: 72px 24px; }
-    h1 { margin: 0 0 12px; font-size: 42px; line-height: 1.1; letter-spacing: 0; }
-    p { color: #555b66; font-size: 18px; line-height: 1.7; }
-    a.button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; margin-top: 18px; border-radius: 6px; background: #1769aa; color: white; font-weight: 700; text-decoration: none; }
-    code { background: #e9edf2; border-radius: 5px; padding: 2px 6px; }
+    main { max-width: 840px; margin: 0 auto; padding: 56px 24px; }
+    h1 { margin: 0 0 10px; font-size: 38px; line-height: 1.12; letter-spacing: 0; }
+    p { margin: 0 0 28px; color: #59606c; font-size: 17px; line-height: 1.65; }
+    ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid #d9dee7; }
+    li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 18px; padding: 16px 0; border-bottom: 1px solid #d9dee7; align-items: center; }
+    a { color: #1769aa; font-weight: 750; text-decoration-thickness: .08em; text-underline-offset: .18em; overflow-wrap: anywhere; }
+    span { color: #333b47; white-space: nowrap; }
+    small { grid-column: 1 / -1; color: #747c89; overflow-wrap: anywhere; }
+    footer { margin-top: 28px; color: #747c89; font-size: 13px; }
   </style>
 </head>
 <body>
   <main>
-    <h1>测试1.txt 下载</h1>
-    <p>点击下面的按钮即可下载 <code>测试1.txt</code>。</p>
-    <a class="button" href="./%E6%B5%8B%E8%AF%951.txt" download>下载测试1.txt</a>
+    <h1>文件下载</h1>
+    <p>这里的文件由本地上传工具发布到 GitHub Pages。</p>
+    <ul>
+      <li>
+        <a href="./files/%E6%B5%8B%E8%AF%952.txt" download>测试2.txt</a>
+        <span>3 bytes</span>
+        <small>files/测试2.txt</small>
+      </li>
+      <li>
+        <a href="./files/%E5%B7%A5%E5%85%B7%E8%87%AA%E6%B5%8B.txt" download>工具自测.txt</a>
+        <span>17 bytes</span>
+        <small>files/工具自测.txt</small>
+      </li>
+      <li>
+        <a href="./%E6%B5%8B%E8%AF%951.txt" download>测试1.txt</a>
+        <span>3 bytes</span>
+        <small>测试1.txt</small>
+      </li>
+    </ul>
+    <footer>最后更新：2026-07-30 15:47:15</footer>
   </main>
 </body>
 </html>
