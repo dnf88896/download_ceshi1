@@ -3,200 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>voices38-pragmata ISO 下载</title>
+  <title>测试1.txt 下载</title>
   <style>
-    :root {
-      color-scheme: light dark;
-      --bg: #f7f7f4;
-      --fg: #181816;
-      --muted: #5d5c56;
-      --line: #d9d7cf;
-      --accent: #156f64;
-      --accent-strong: #0f4f49;
-      --panel: #ffffff;
-      --code: #eeeeea;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #181816;
-        --fg: #f7f7f4;
-        --muted: #c7c3b8;
-        --line: #3a3934;
-        --accent: #6fd1c4;
-        --accent-strong: #91e3da;
-        --panel: #22221f;
-        --code: #2e2d29;
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.55;
-    }
-
-    main {
-      width: min(960px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 48px 0 64px;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.05;
-      letter-spacing: 0;
-    }
-
-    h2 {
-      margin: 40px 0 12px;
-      font-size: 1.35rem;
-    }
-
-    p {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration-thickness: 0.08em;
-      text-underline-offset: 0.18em;
-    }
-
-    a:hover {
-      color: var(--accent-strong);
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 28px 0;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid var(--accent);
-      border-radius: 6px;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--accent);
-    }
-
-    section {
-      border-top: 1px solid var(--line);
-      padding-top: 24px;
-    }
-
-    code,
-    pre {
-      background: var(--code);
-      border-radius: 6px;
-      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
-    }
-
-    code {
-      padding: 0.1em 0.35em;
-    }
-
-    pre {
-      overflow-x: auto;
-      padding: 16px;
-      margin: 12px 0 18px;
-    }
-
-    ol {
-      padding-left: 1.4rem;
-    }
-
-    li {
-      margin: 8px 0;
-    }
-
-    .meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      margin: 28px 0;
-    }
-
-    .meta div {
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--panel);
-      padding: 14px;
-    }
-
-    .meta strong {
-      display: block;
-      margin-bottom: 4px;
-    }
+    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f6f7f9; color: #181a1f; }
+    main { max-width: 720px; margin: 0 auto; padding: 72px 24px; }
+    h1 { margin: 0 0 12px; font-size: 42px; line-height: 1.1; letter-spacing: 0; }
+    p { color: #555b66; font-size: 18px; line-height: 1.7; }
+    a.button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; margin-top: 18px; border-radius: 6px; background: #1769aa; color: white; font-weight: 700; text-decoration: none; }
+    code { background: #e9edf2; border-radius: 5px; padding: 2px 6px; }
   </style>
 </head>
 <body>
   <main>
-    <h1>voices38-pragmata ISO 下载</h1>
-    <p>这个页面用于分发 <code>voices38-pragmata.iso</code>。因为 ISO 体积约 33.85 GiB，文件被拆成多个 GitHub Release 附件。请下载全部分卷后在本地合并。</p>
-
-    <div class="actions">
-      <a class="button" href="https://github.com/dnf88896/voices38-pragmata/releases/tag/v1.0.0">打开下载页</a>
-      <a class="button secondary" href="https://github.com/dnf88896/voices38-pragmata/releases/download/v1.0.0/SHA256SUMS.txt">校验清单</a>
-    </div>
-
-    <div class="meta">
-      <div>
-        <strong>文件名</strong>
-        <span>voices38-pragmata.iso</span>
-      </div>
-      <div>
-        <strong>大小</strong>
-        <span>36,344,594,432 bytes / 33.85 GiB</span>
-      </div>
-      <div>
-        <strong>分卷</strong>
-        <span>约 19 个，每个不超过 GitHub Release 单文件限制</span>
-      </div>
-    </div>
-
-    <section>
-      <h2>Windows 合并方法</h2>
-      <ol>
-        <li>从下载页保存所有 <code>voices38-pragmata.iso.part001</code>、<code>part002</code> 等分卷到同一个文件夹。</li>
-        <li>在该文件夹空白处按住 Shift 右键，选择“在终端中打开”。</li>
-        <li>运行下面的命令：</li>
-      </ol>
-      <pre><code>copy /b voices38-pragmata.iso.part* voices38-pragmata.iso</code></pre>
-    </section>
-
-    <section>
-      <h2>macOS / Linux 合并方法</h2>
-      <pre><code>cat voices38-pragmata.iso.part* &gt; voices38-pragmata.iso</code></pre>
-    </section>
-
-    <section>
-      <h2>校验</h2>
-      <p>合并后可以用 SHA256 校验文件完整性。Windows PowerShell：</p>
-      <pre><code>Get-FileHash .\voices38-pragmata.iso -Algorithm SHA256</code></pre>
-      <p>将输出结果与下载页里的 <code>SHA256SUMS.txt</code> 对照。</p>
-    </section>
+    <h1>测试1.txt 下载</h1>
+    <p>点击下面的按钮即可下载 <code>测试1.txt</code>。</p>
+    <a class="button" href="./%E6%B5%8B%E8%AF%951.txt" download>下载测试1.txt</a>
   </main>
 </body>
 </html>
-
